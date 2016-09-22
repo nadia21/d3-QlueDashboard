@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Persebaran Kategori Laporan Qlue di Setiap Kelurahan</title>
+
+    <!-- CSS libraries -->
+    <link href="skeleton.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS styles -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h3 class="nine columns">Persebaran Kategori Laporan Qlue di Setiap Kelurahan di Bulan Juni - Agustus 2016</h3>
+        <select id="select-key" class="three columns">
+          <option value="Sampah" selected="selected">Persebaran Laporan Sampah</option>
+          <option value="Pelanggaran">Persebaran Laporan Pelanggaran</option>
+          <option value="Bencana_Banjir">Persebaran Laporan Bencana Banjir</option>
+          <option value="Parkir_Liar">Persebaran Laporan Parkir Liar</option>
+          <option value="Fasilitas_Umum">Persebaran Laporan Fasilitas Umum</option>
+          <option value="Kemacetan">Persebaran Laporan Kemacetan</option>
+          <option value="Jalan_Rusak">Persebaran Laporan Jalan Rusak</option>
+          <option value="klan_Tidak_Berijin">Persebaran Laporan Iklan Tidak Berijin</option>
+          <option value="Kaki_Lima_Liar">Persebaran Laporan Kaki Lima Liar</option>
+          <option value="Lampu_Jalan_Rusak">Persebaran Laporan Lampu Jalan Rusak</option>
+        </select>
+      </div>
+      <div id="map"><!-- Map container --></div>
+      <div id="legend"><!-- Legend container --></div>
+
+      <div id="details" class="hidden row"><!-- Details container --></div>->
+      <div id="initial">
+        <h5>Instructions</h5>
+        <ul>
+          <li>Change the key using the dropdown above the map.</li>
+          <li>Select a kelurahan to show the details.</li>
+          <li>Scroll in the map to zoom in and out.</li>
+        </ul>
+      </div>
+            <div class="footer">
+        <strong>Data sources</strong>: Qlue Reports June - Aug 2016.
+      </div>
+    </div>
+
+       <!-- Mustache template, rendered later to show the details of a feature -->
+    <script id="template" type="x-tmpl-mustache">
+      <h3 class="six columns">{{ name }}</h3>
+      <table class="ten columns">
+        <tr>
+          <th>Sampah:</th>
+          <td>{{ Sampah }} </td>
+        </tr>
+        <tr>
+          <th>Pelanggaran:</th>
+          <td>{{ Pelanggaran }} </td>
+        </tr>
+        <tr>
+          <th>Parkir Liar:</th>
+          <td>{{ Parkir_Liar }} </td>
+        </tr>
+        <tr>
+          <th>Fasilitas Umum:</th>
+          <td>{{ Fasilitas_Umum }} </td>
+        </tr>
+        <tr>
+          <th>Kemacetan:</th>
+          <td>{{ Kemacetan }} </td>
+        </tr>
+        <tr>
+          <th>Jalan Rusak:</th>
+          <td>{{ Jalan_Rusak }} </td>
+        </tr>
+        <tr>
+          <th>Iklan Tidak Berijin:</th>
+          <td>{{ Iklan_Tidak_Berijin }} </td>
+        </tr>
+        <tr>
+          <th>Kaki Lima Liar:</th>
+          <td>{{ Kaki_Lima_Liar }} </td>
+        </tr>
+        <tr>
+          <th>Lampu Jalan Rusak:</th>
+          <td>{{ Lampu_Jalan_Rusak }} </td>
+        </tr>
+        <tr>
+          <th>Bencana Banjir:</th>
+          <td>{{ Bencana_Banjir }} </td>
+        </tr>
+      </table>
+      <a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x274c;</a>
+    </script>
+
+
+    <!-- JS libraries -->
+    <script src="d3.v3.min.js" charset="utf-8"></script>
+        <script src="mustache.min.js"></script>
+
+    <!-- Custom JS code -->
+    <script src="map.js"></script>
+  </body>
+</html>
